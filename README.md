@@ -4,6 +4,9 @@ Arquitecturas de Software – ARSW
 
 #### Taller – programación concurrente, condiciones de carrera y sincronización de hilos. EJERCICIO INDIVIDUAL O EN PAREJAS.
 
+##### Santiago Arévalo Rojas
+##### Juan Felipe Sánchez Pérez
+
 ##### Parte I – Antes de terminar la clase.
 
 Creación, puesta en marcha y coordinación de hilos.
