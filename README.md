@@ -27,7 +27,7 @@ Creación, puesta en marcha y coordinación de hilos.
 </strong> 
 
 * Nuevamente se evidencia que trabajan todos los núcelos del procesador cuando se crean tres hilos para realizar la tarea.
-![img.png](img/img.png)
+![img_13.png](img/img_13.png)
 
 <strong>
 
@@ -69,12 +69,12 @@ Taller.
 
 </strong>
 
-* Antes de iniciar la carrera, ya no evidencia la aparición del diálogo diciendo quien es el ganador:
-![img_1.png](img_1.png)
+* Antes de iniciar la carrera, ya no se evidencia la aparición del diálogo diciendo quien es el ganador:
+![img_1.png](img/img_1.png)
 
 * Aplicando el método join() sobre los hilos para esperar a que terminen su ejecución, arreglamos el problema. En este caso, el ganador fue el galgo 1:
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
+![img_2.png](img/img_2.png)
+![img_3.png](img/img_3.png)
 
 <strong>
 
@@ -88,16 +88,13 @@ Taller.
 </strong>
 
 * Se observa una inconsistencia en el orden en que se muestra el resultado, apareciendo primero la posición 6 que la 5, por ejemplo:
-![img_4.png](img_4.png)
+![img_4.png](img/img_4.png)
 * Además, en ocasiones aparecen 16 corredores y no 17:
-![img_5.png](img_5.png)
-* Cuando observamos el ranking la consola, pudimos notar que dos galgos ocuparon la segunda posición, lo cual podría haber ocurrido debido a un empate:
-![img_6.png](img_6.png)
+![img_5.png](img/img_5.png)
+* Cuando observamos el ranking en la consola, pudimos notar que dos galgos ocuparon la segunda posición, lo cual podría haber ocurrido debido a un empate:
+![img_6.png](img/img_6.png)
 * Teniendo esto en cuenta, la región crítica es aquella donde los hilos consultan y modifican la variable que indica el orden de llegada:
-![img_8.png](img_8.png)
-
-
-
+![img_8.png](img/img_8.png)
 
 <strong>
 
@@ -108,9 +105,9 @@ Taller.
 </strong>
 
 * En este caso, usamos el mecanismo de bloques sincronizados sobre la región crítica de la siguiente forma:
-![img_9.png](img_9.png)
+![img_9.png](img/img_9.png)
 * Ahora, vemos que se arregló el problema encontrado anteriormente, y debido a la sincronización, no es posible que hayan empates en este caso:
-![img_7.png](img_7.png)
+![img_7.png](img/img_7.png)
 
 <strong>
 
@@ -122,11 +119,11 @@ Taller.
 </strong>
 
 * En el actionListener del botón de stop, se recorren todos los galgos que se tienen en el arreglo de Galgos, y se establece la variable "stop" en true. Esto hará que cada uno de los galgos se detenga, usando el método wait al detectar que deben detenerse.
-![img_10.png](img_10.png)
-![img_11.png](img_11.png)
+![img_10.png](img/img_10.png)
+![img_11.png](img/img_11.png)
 
 * Luego, para continuar con la carrera cuando se haga click en el botón de continuar, se establece en false la variable "stop", y se usa el mpetodo notifyAll(), indicandoles a los galgos que deben seguir con la carrera, 
-![img_12.png](img_12.png)
+![img_12.png](img/img_12.png)
 
 ## Criterios de evaluación
 
