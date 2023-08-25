@@ -112,23 +112,29 @@ Taller.
 * Ahora, vemos que se arregló el problema encontrado anteriormente, y debido a la sincronización, no es posible que hayan empates en este caso:
 ![img_7.png](img_7.png)
 
+<strong>
+
 4.  Implemente las funcionalidades de pausa y continuar. Con estas,
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
     deberían despertarse y continuar con la carrera. Diseñe una solución que permita hacer esto utilizando los mecanismos de sincronización con las primitivas de los Locks provistos por el lenguaje (wait y notifyAll).
 
+</strong>
+
+* En el actionListener del botón de stop, se recorren todos los galgos que se tienen en el arreglo de Galgos, y se establece la variable "stop" en true. Esto hará que cada uno de los galgos se detenga, usando el método wait al detectar que deben detenerse.
+![img_10.png](img_10.png)
+![img_11.png](img_11.png)
+
+* Luego, para continuar con la carrera cuando se haga click en el botón de continuar, se establece en false la variable "stop", y se usa el mpetodo notifyAll(), indicandoles a los galgos que deben seguir con la carrera, 
+![img_12.png](img_12.png)
 
 ## Criterios de evaluación
 
-1. Funcionalidad.
-
-    1.1. La ejecución de los galgos puede ser detenida y resumida consistentemente.
+1. Funcionalidad. 
+   1. La ejecución de los galgos puede ser detenida y resumida consistentemente. 
+   2. No hay inconsistencias en el orden de llegada registrado.
     
-    1.2. No hay inconsistencias en el orden de llegada registrado.
-    
-2. Diseño.   
-
-    2.1. Se hace una sincronización de sólo la región crítica (sincronizar, por ejemplo, todo un método, bloquearía más de lo necesario).
-    
-    2.2. Los galgos, cuando están suspendidos, son reactivados son sólo un llamado (usando un monitor común).
+2. Diseño. 
+   1. Se hace una sincronización de sólo la región crítica (sincronizar, por ejemplo, todo un método, bloquearía más de lo necesario). 
+   2. Los galgos, cuando están suspendidos, son reactivados son sólo un llamado (usando un monitor común).
 

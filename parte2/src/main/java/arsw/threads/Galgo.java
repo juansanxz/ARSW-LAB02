@@ -7,6 +7,8 @@ package arsw.threads;
  * 
  */
 public class Galgo extends Thread {
+
+	private boolean stop;
 	private int paso;
 	private Carril carril;
 	RegistroLlegada regl;
@@ -16,10 +18,16 @@ public class Galgo extends Thread {
 		this.carril = carril;
 		paso = 0;
 		this.regl=reg;
+		stop = false;
 	}
 
 	public void corra() throws InterruptedException {
-		while (paso < carril.size()) {			
+		while (paso < carril.size()) {
+			if (stop) {
+				synchronized (regl) {
+					regl.wait();
+				}
+			}
 			Thread.sleep(100);
 			carril.setPasoOn(paso++);
 			carril.displayPasos(paso);
@@ -53,4 +61,7 @@ public class Galgo extends Thread {
 
 	}
 
+	public void setStop(boolean stop) {
+		this.stop = stop;
+	}
 }

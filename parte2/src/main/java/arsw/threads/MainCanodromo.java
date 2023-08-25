@@ -61,12 +61,10 @@ public class MainCanodromo {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         synchronized (reg) {
-                            try {
-                                reg.wait();
-                                System.out.println("Carrera pausada!");
-                            } catch (InterruptedException ex) {
-                                throw new RuntimeException(ex);
+                            for (Galgo galgo : galgos){
+                                galgo.setStop(true);
                             }
+                            System.out.println("Carrera pausada!");
                         }
                     }
                 }
@@ -77,6 +75,9 @@ public class MainCanodromo {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         synchronized (reg) {
+                            for (Galgo galgo : galgos){
+                                galgo.setStop(false);
+                            }
                             reg.notifyAll();
                             System.out.println("Carrera reanudada!");
                         }
