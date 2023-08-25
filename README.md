@@ -122,7 +122,7 @@ Taller.
 ![img_10.png](img/img_10.png)
 ![img_11.png](img/img_11.png)
 
-* Luego, para continuar con la carrera cuando se haga click en el botón de continuar, se establece en false la variable "stop", y se usa el mpetodo notifyAll(), indicandoles a los galgos que deben seguir con la carrera:
+* Luego, para continuar con la carrera cuando se haga click en el botón de continuar, se establece en false la variable "stop", y se usa el mpetodo notifyAll(), indicandoles a los galgos que deben seguir con la carrera:  
 ![img_12.png](img/img_12.png)
 
 ## Criterios de evaluación
