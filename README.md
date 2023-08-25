@@ -57,6 +57,8 @@ Al iniciar la aplicación, hay un primer error evidente: los resultados (total r
 
 Taller.
 
+<strong>
+
 1.  Corrija la aplicación para que el aviso de resultados se muestre
     sólo cuando la ejecución de todos los hilos ‘galgo’ haya finalizado.
     Para esto tenga en cuenta:
@@ -65,6 +67,17 @@ Taller.
 
     b.  Puede utilizarse el método join() de la clase Thread para sincronizar el hilo que inicia la carrera, con la finalización de los hilos de los galgos.
 
+</strong>
+
+* Antes de iniciar la carrera, ya no evidencia la aparición del diálogo diciendo quien es el ganador:
+![img_1.png](img_1.png)
+
+* Aplicando el método join() sobre los hilos para esperar a que terminen su ejecución, arreglamos el problema. En este caso, el ganador fue el galgo 1:
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+
+<strong>
+
 2.  Una vez corregido el problema inicial, corra la aplicación varias
     veces, e identifique las inconsistencias en los resultados de las
     mismas viendo el ‘ranking’ mostrado en consola (algunas veces
@@ -72,9 +85,32 @@ Taller.
     dichas inconsistencias). A partir de esto, identifique las regiones
     críticas () del programa.
 
+</strong>
+
+* Se observa una inconsistencia en el orden en que se muestra el resultado, apareciendo primero la posición 6 que la 5, por ejemplo:
+![img_4.png](img_4.png)
+* Además, en ocasiones aparecen 16 corredores y no 17:
+![img_5.png](img_5.png)
+* Cuando observamos el ranking la consola, pudimos notar que dos galgos ocuparon la segunda posición, lo cual podría haber ocurrido debido a un empate:
+![img_6.png](img_6.png)
+* Teniendo esto en cuenta, la región crítica es aquella donde los hilos consultan y modifican la variable que indica el orden de llegada:
+![img_8.png](img_8.png)
+
+
+
+
+<strong>
+
 3.  Utilice un mecanismo de sincronización para garantizar que a dichas
     regiones críticas sólo acceda un hilo a la vez. Verifique los
     resultados.
+
+</strong>
+
+* En este caso, usamos el mecanismo de bloques sincronizados sobre la región crítica de la siguiente forma:
+![img_9.png](img_9.png)
+* Ahora, vemos que se arregló el problema encontrado anteriormente, y debido a la sincronización, no es posible que hayan empates en este caso:
+![img_7.png](img_7.png)
 
 4.  Implemente las funcionalidades de pausa y continuar. Con estas,
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
