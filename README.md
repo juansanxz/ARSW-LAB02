@@ -118,11 +118,11 @@ Taller.
 
 </strong>
 
-* En el actionListener del botón de stop, se recorren todos los galgos que se tienen en el arreglo de Galgos, y se establece la variable "stop" en true. Esto hará que cada uno de los galgos se detenga, usando el método wait al detectar que deben detenerse.
+* En el actionListener del botón de stop, se recorren todos los galgos que se tienen en el arreglo de Galgos, y se establece la variable "stop" en true. Esto hará que cada uno de los galgos se detenga, usando el método wait al detectar que deben detenerse.  
 ![img_10.png](img/img_10.png)
 ![img_11.png](img/img_11.png)
 
-* Luego, para continuar con la carrera cuando se haga click en el botón de continuar, se establece en false la variable "stop", y se usa el mpetodo notifyAll(), indicandoles a los galgos que deben seguir con la carrera, 
+* Luego, para continuar con la carrera cuando se haga click en el botón de continuar, se establece en false la variable "stop", y se usa el mpetodo notifyAll(), indicandoles a los galgos que deben seguir con la carrera:
 ![img_12.png](img/img_12.png)
 
 ## Criterios de evaluación
