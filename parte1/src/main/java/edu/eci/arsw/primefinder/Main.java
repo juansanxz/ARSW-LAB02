@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		Object lock = 24;
+		Boolean lock = true;
 		//PrimeFinderThread pft=new PrimeFinderThread(0, 30000000);
 
 		for(int i=0; i<3; i++){
@@ -22,19 +22,22 @@ public class Main {
 			} catch (InterruptedException e) {
 				throw new RuntimeException(e);
 			}
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("Para seguir buscando los números primos en el intervalo dado, presione enter.");
-			String letter = scanner.nextLine();
-			if (!letter.equals("")) {
+			if (Thread.activeCount() == 2){
 				running = false;
-
 			} else {
-				synchronized (lock) {
-					lock.notifyAll();
+				Scanner scanner = new Scanner(System.in);
+				System.out.println("Para seguir buscando los números primos en el intervalo dado, presione enter.");
+				String letter = scanner.nextLine();
+				if (!letter.equals("")) {
+					running = false;
+
+				} else {
+					synchronized (lock) {
+						lock.notifyAll();
+					}
 				}
 			}
 		}
-		System.out.println("Pacccccccccccccccccccccccr.");
 		//pft.start();
 	}
 	
